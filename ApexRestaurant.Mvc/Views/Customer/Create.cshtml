@@ -1,0 +1,28 @@
+@model ApexRestaurant.Mvc.Models.CustomerViewModel
+
+@{
+    ViewBag.Title = "Create New Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create New Customer</h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @Html.EditorForModel()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
